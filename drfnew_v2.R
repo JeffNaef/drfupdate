@@ -1,5 +1,6 @@
 require(drf)
-
+require(Matrix)
+require(kernlab)
 
 
 drfCI <- function(X, Y, B, sampling = "binomial", ...) {
