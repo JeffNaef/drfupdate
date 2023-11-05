@@ -8,10 +8,7 @@
 
 ```R
 # load functions and packages
-library(kernlab)
 library(drf)
-library(Matrix)
-library(DescTools)
 library(mice)
 source("drfnew_v2.R")
 
@@ -41,6 +38,9 @@ print(x)
 # Fit DRF with uncertainty quantification to the data
 DRF<-drfCI(X=X, Y=Y, B=50,num.trees=1000, min.node.size = 5)
 DRFpred<-predictdrf(DRF, newdata=x)
+
+## Sample from P_{Y| X=x}
+Yxs<-Y[sample(1:n, size=n, replace = T, DRFpred$weights[1,])]
 
 
 # Calculate quantile prediction as weighted quantiles
