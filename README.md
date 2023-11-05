@@ -1,17 +1,18 @@
-# Small Walkthrough for the updated drf function
-# Updates:
-# - Ability to deal with missing values in covariates X
-# - Uncertainty Quantification
-# - Variable Importance
+ Small Walkthrough for the updated drf function. The drf package on CRAN is a package for forest-based conditional distribution estimation of a possibly multivariate response. The estimated distribution is in a simple form which allows for simple and fast computation of different functionals of the conditional distributions such as, for example, conditional quantiles, conditional correlations or conditional probability statements. One can do a heterogeneity adjustment with DRF by obtaining the weighting function which describes the relevance of each training point for a given test point and which can further be used as an input to some other method.
 
+ Updates:
+ - Ability to deal with missing values in covariates X
+ - Uncertainty Quantification
+ - Variable Importance
+
+
+```R
 # load functions and packages
 library(kernlab)
 library(drf)
-library(grf)
 library(Matrix)
 library(DescTools)
 library(mice)
-library(sobolMDA)
 source("drfnew_v2.R")
 
 set.seed(10)
@@ -91,3 +92,4 @@ abline(v=CI.lower.q2, col="darkblue", lty=2)
 abline(v=CI.upper.q2, col="darkblue", lty=2)
 abline(v=CI.lower.mu, col="darkblue", lty=2)
 abline(v=CI.upper.mu, col="darkblue", lty=2)
+```
